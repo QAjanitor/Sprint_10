@@ -19,6 +19,17 @@ class MainFuncPage(BasePage):
         action.send_keys(to_address)
         action.perform()
 
+    def check_change_route_type_updates_data(self):
+        self.click_element(Locators.OPTIMAL_BUTTON)
+        type_active_auto = self.find_element(Locators.TYPE_ACTIVE_TAB)
+        optimal_text = self.get_text_by_locator(Locators.RESULT_TEXT)
+        optimal_text_duration = self.get_text_by_locator(Locators.RESULT_TEXT_DURATION)
+        self.click_element(Locators.FAST_BUTTON)
+        type_active_taxi = self.find_element(Locators.TYPE_ACTIVE_TAB)
+        fast_text = self.get_text_by_locator(Locators.RESULT_TEXT)
+        fast_text_duration = self.get_text_by_locator(Locators.RESULT_TEXT_DURATION)
+        return type_active_auto != type_active_taxi and optimal_text != fast_text and optimal_text_duration != fast_text_duration
+
     def check_points_in_map(self, addresses):
         self.wait_of_element(Locators.POINTS)
         points = self.find_elements(Locators.POINTS)
@@ -34,3 +45,4 @@ class MainFuncPage(BasePage):
 
     def check_free_block_route_text_displayed(self):
         return self.wait_of_element(Locators.RESULT_TEXT_FREE_CAR_AND_0_TIME)
+
