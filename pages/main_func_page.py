@@ -19,6 +19,11 @@ class MainFuncPage(BasePage):
         action.send_keys(to_address)
         action.perform()
 
+    def check_button_call_taxi_is_active(self):
+        self.click_element(Locators.FAST_BUTTON)
+        self.click_element(Locators.TAXI_CALL_BUTTON)
+        return self.wait_of_element(Locators.TAXI_CALL_BUTTON)
+
     def check_change_route_type_updates_data(self):
         self.click_element(Locators.OPTIMAL_BUTTON)
         type_active_auto = self.find_element(Locators.TYPE_ACTIVE_TAB)

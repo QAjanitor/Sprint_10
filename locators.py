@@ -14,7 +14,6 @@ class Locators:
     TYPE_ACTIVE_TAB = (By.CSS_SELECTOR, '.type.active')
     RESULT_TEXT = (By.CSS_SELECTOR, ".results-text .text")
     RESULT_TEXT_DURATION = (By.CSS_SELECTOR, ".results-text .duration")
-    DRIVE_TYPES = (By.CSS_SELECTOR, ".types-container .type")
     # DRIVE_TYPES = (By.CSS_SELECTOR, ".types-container .type.active")
     TAXI_CALL_BUTTON = (By.XPATH, "//button[.='Вызвать такси']")
     BOOK_A_CAR_BUTTON = (By.XPATH, "//button[.='Забронировать']")
