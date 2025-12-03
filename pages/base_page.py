@@ -11,6 +11,10 @@ class BasePage:
     def wait_of_element(self, locator):
         return WebDriverWait(self.driver, 3).until(EC.visibility_of_element_located(locator))
 
+    @allure.step('Ожидать отсутствия элемента')
+    def wait_of_element_invisibility(self, locator):
+        return WebDriverWait(self.driver, 3).until(EC.invisibility_of_element_located(locator))
+
     @allure.step('Получить текст элемента')
     def get_text_by_locator(self, locator):
         return self.driver.find_element(*locator).text

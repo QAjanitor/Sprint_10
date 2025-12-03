@@ -1,3 +1,5 @@
+from time import sleep
+
 from selenium.webdriver import ActionChains
 from locators import Locators
 from pages.base_page import BasePage
@@ -30,10 +32,12 @@ class MainFuncPage(BasePage):
 
     def check_change_route_type_updates_data(self):
         self.click_element(Locators.OPTIMAL_BUTTON)
+        self.wait_of_element_invisibility(Locators.TAXI_CALL_BUTTON)
         type_active_auto = self.find_element(Locators.TYPE_ACTIVE_TAB)
         optimal_text = self.get_text_by_locator(Locators.RESULT_TEXT)
         optimal_text_duration = self.get_text_by_locator(Locators.RESULT_TEXT_DURATION)
         self.click_element(Locators.FAST_BUTTON)
+        self.wait_of_element(Locators.TAXI_CALL_BUTTON)
         type_active_taxi = self.find_element(Locators.TYPE_ACTIVE_TAB)
         fast_text = self.get_text_by_locator(Locators.RESULT_TEXT)
         fast_text_duration = self.get_text_by_locator(Locators.RESULT_TEXT_DURATION)
