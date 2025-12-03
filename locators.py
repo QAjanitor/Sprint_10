@@ -10,6 +10,7 @@ class Locators:
     OPTIMAL_BUTTON = (By.XPATH, "//div[contains(@class, 'mode') and .='Оптимальный']")
     FAST_BUTTON = (By.XPATH, "//div[contains(@class, 'mode') and .='Быстрый']")
     CUSTOM_BUTTON = (By.XPATH, "//div[contains(@class, 'mode') and .='Свой']")
+    TYPES = (By.CSS_SELECTOR, '.types-container .type')
     TYPE_ACTIVE_TAB = (By.CSS_SELECTOR, '.type.active')
     RESULT_TEXT = (By.CSS_SELECTOR, ".results-text .text")
     RESULT_TEXT_DURATION = (By.CSS_SELECTOR, ".results-text .duration")

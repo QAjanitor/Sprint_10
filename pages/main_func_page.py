@@ -30,6 +30,17 @@ class MainFuncPage(BasePage):
         fast_text_duration = self.get_text_by_locator(Locators.RESULT_TEXT_DURATION)
         return type_active_auto != type_active_taxi and optimal_text != fast_text and optimal_text_duration != fast_text_duration
 
+    def check_activity_tab_in_custom_route_type(self):
+        self.click_element(Locators.CUSTOM_BUTTON)
+        types_tab = self.find_elements(Locators.TYPES)
+        for type_tab in types_tab:
+            classes = type_tab.get_attribute('class')
+            if classes:
+                class_list = classes.split()
+                if 'disabled' in class_list:
+                    return False
+        return True
+
     def check_points_in_map(self, addresses):
         self.wait_of_element(Locators.POINTS)
         points = self.find_elements(Locators.POINTS)
@@ -45,4 +56,3 @@ class MainFuncPage(BasePage):
 
     def check_free_block_route_text_displayed(self):
         return self.wait_of_element(Locators.RESULT_TEXT_FREE_CAR_AND_0_TIME)
-
