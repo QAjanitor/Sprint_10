@@ -21,6 +21,11 @@ class MainFuncPage(BasePage):
         action.send_keys(to_address)
         action.perform()
 
+    def check_block_order_six_tariff(self):
+        self.click_element(Locators.FAST_BUTTON)
+        self.click_element(Locators.TAXI_CALL_BUTTON)
+        return self.wait_of_element(Locators.FORM_ORDER_SIX_TARIFF)
+
     def check_book_a_car_button_is_active(self):
         self.click_element(Locators.CUSTOM_BUTTON)
         self.click_element(Locators.DRIVE_TYPE)

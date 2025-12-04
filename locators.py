@@ -17,7 +17,7 @@ class Locators:
     DRIVE_TYPE = (By.CSS_SELECTOR, ".types-container .type.drive")
     TAXI_CALL_BUTTON = (By.XPATH, "//button[.='Вызвать такси']")
     BOOK_A_CAR_BUTTON = (By.XPATH, "//button[.='Забронировать']")
-    FORM_ORDER_SIX_TARIFF = (By.CLASS_NAME, 'tariff-picker shown')
+    FORM_ORDER_SIX_TARIFF = (By.CSS_SELECTOR, '.tariff-picker.shown')
     PHONE = (By.XPATH, "//div[@class='np-text' and .='Телефон']")
     PAYMENT = (By.XPATH, "//div[@class='pp-text' and .='Способ оплаты']")
     COMMENT = (By.XPATH, "//label[@class='label' and .='Комментарий водителю...']")
