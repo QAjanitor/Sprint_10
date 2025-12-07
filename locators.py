@@ -35,6 +35,13 @@ class Locators:
     SEARCHING_TITLE = (By.XPATH, "//div[contains(text(), 'Поиск машины')]")
     SEARCH_TIMER = (By.CSS_SELECTOR, ".order-header-time")
 
+    MIN_AND_ARRIVAL = (By.XPATH, "//div[contains(., 'мин. и приедет')]")
+    CAR_NUMBER = (By.CSS_SELECTOR, ".order-header-content .order-number")
+    CAR_IMAGE = (By.CSS_SELECTOR, ".order-header-content img[alt='Машина']")
+    AVATAR = (By.XPATH, "//div[contains(@class, 'order-btn-rating')]/following-sibling::img")
+    DRIVER_NAME = (By.CSS_SELECTOR, ".order-btn-group:first-child > div:nth-child(2)")
+    RATING_DRIVER = (By.CSS_SELECTOR, 'order-btn-rating')
+
     @staticmethod
     def tariff_tooltip(title):
         return (By.XPATH, f"//div[@class='i-title' and text()='{title}']")

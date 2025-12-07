@@ -6,5 +6,12 @@ class TestE2ETaxiOrder:
         main_func_page.fill_addresses(ADDRESSES[0], ADDRESSES[1])
         main_func_page.call_fast_taxi()
         main_func_page.select_work_tariff_and_laptop_with_click_order_taxi_button()
-        assert main_func_page.check_waiting_pop_up_success_order()
+        assert main_func_page.check_waiting_pop_up_waiting_order()
+        assert main_func_page.check_all_elements_in_pop_up_success_order()
+
+    def test_wait_for_driver_search_timer(self, main_func_page):
+        main_func_page.fill_addresses(ADDRESSES[0], ADDRESSES[1])
+        main_func_page.call_fast_taxi()
+        main_func_page.select_work_tariff_and_laptop_with_click_order_taxi_button()
+        main_func_page.wait_order_popup()
         assert main_func_page.check_all_elements_in_pop_up_success_order()

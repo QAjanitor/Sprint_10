@@ -37,6 +37,26 @@ class MainFuncPage(BasePage):
             if tariff_title == tariff:
                 tariff_card.click()
 
+    def check_all_elements_in_pop_up_success_order(self):
+        timer_invisibility = self.wait_of_element_invisibility(Locators.SEARCH_TIMER)
+        min_and_arrival = self.wait_of_element(Locators.MIN_AND_ARRIVAL)
+        car_number = self.wait_of_element(Locators.CAR_NUMBER)
+        car_image = self.wait_of_element(Locators.CAR_IMAGE)
+        avatar = self.wait_of_element(Locators.AVATAR)
+        driver_name= self.wait_of_element(Locators.DRIVER_NAME)
+        driver_rating = self.wait_of_element(Locators.RATING_DRIVER)
+        name = self.get_text_by_locator(Locators.DRIVER_NAME)
+        rating = self.get_text_by_locator(Locators.RATING_DRIVER)
+        return (timer_invisibility and
+                min_and_arrival and
+                car_number and
+                car_image and
+                avatar and
+                driver_name and
+                driver_rating and
+                name and
+                rating)
+
     def select_work_tariff_and_laptop_with_click_order_taxi_button(self):
         self.select_tariff('Рабочий')
         self.click_element(Locators.ORDER_REQUIREMENT_BUTTON)
@@ -44,8 +64,11 @@ class MainFuncPage(BasePage):
         self.click_element(Locators.TABLE_FOR_NOTEBOOK_BUTTON)
         self.click_element(Locators.ORDER_TAXI_BUTTON)
 
-    def check_waiting_pop_up_success_order(self):
+    def wait_order_popup(self):
         return self.wait_of_element(Locators.POP_UP_SUCCESS_ORDER)
+
+    def check_waiting_pop_up_waiting_order(self):
+        return self.wait_order_popup()
 
     def check_all_elements_in_pop_up_success_order(self):
         title = self.wait_of_element(Locators.SEARCHING_TITLE)
