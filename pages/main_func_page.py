@@ -47,6 +47,13 @@ class MainFuncPage(BasePage):
     def check_waiting_pop_up_success_order(self):
         return self.wait_of_element(Locators.POP_UP_SUCCESS_ORDER)
 
+    def check_all_elements_in_pop_up_success_order(self):
+        title = self.wait_of_element(Locators.SEARCHING_TITLE)
+        details = self.wait_of_element(Locators.SEARCHING_TITLE)
+        cancel = self.wait_of_element(Locators.SEARCHING_TITLE)
+        timer = self.wait_of_element(Locators.SEARCHING_TITLE)
+        return title and details and cancel and timer
+
     def check_existence_fields_and_button_order_taxi(self):
         phone = self.wait_of_element(Locators.PHONE)
         payment = self.wait_of_element(Locators.PAYMENT)

@@ -30,6 +30,10 @@ class Locators:
     ORDER_REQUIREMENT_BUTTON = (By.CLASS_NAME, 'reqs-header')
     TABLE_FOR_NOTEBOOK_BUTTON = (By.CSS_SELECTOR, '.slider.round')
     POP_UP_SUCCESS_ORDER = (By.CLASS_NAME, 'order-body')
+    DETAILS_BTN = (By.XPATH, "//div[text()='Детали']/../button")
+    CANCEL_BTN = (By.XPATH, "//div[text()='Отменить']/../button")
+    SEARCHING_TITLE = (By.XPATH, "//div[contains(text(), 'Поиск машины')]")
+    SEARCH_TIMER = (By.CSS_SELECTOR, ".order-header-time")
 
     @staticmethod
     def tariff_tooltip(title):

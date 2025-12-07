@@ -7,3 +7,4 @@ class TestE2ETaxiOrder:
         main_func_page.call_fast_taxi()
         main_func_page.select_work_tariff_and_laptop_with_click_order_taxi_button()
         assert main_func_page.check_waiting_pop_up_success_order()
+        assert main_func_page.check_all_elements_in_pop_up_success_order()
