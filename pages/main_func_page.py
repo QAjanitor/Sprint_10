@@ -22,6 +22,14 @@ class MainFuncPage(BasePage):
         action.send_keys(to_address)
         action.perform()
 
+    def order_fast_taxi_work_tariff(self, remember_price = False):
+        self.call_fast_taxi()
+        self.select_tariff('Рабочий')
+        if remember_price:
+            self.remember_order_price()
+        self.click_element(Locators.ORDER_TAXI_BUTTON)
+        self.wait_of_element(Locators.POP_UP_SUCCESS_ORDER)
+
     def call_fast_taxi(self):
         self.wait_of_element(Locators.FAST_BUTTON)
         self.click_element(Locators.FAST_BUTTON)

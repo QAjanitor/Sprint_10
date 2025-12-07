@@ -1,8 +1,8 @@
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium import webdriver
 import pytest
-import os
 
+from data import ADDRESSES
 from pages.main_func_page import MainFuncPage
 from urls import BASE_URL
 
@@ -11,17 +11,10 @@ from urls import BASE_URL
 def main_func_page(driver):
     return MainFuncPage(driver)
 
-# @pytest.fixture
-# def random_user_payload_for_create():
-#     fake = Faker('ru_RU')
-#     return {
-#         'first_name': fake.first_name(),
-#         'last_name': fake.last_name(),
-#         'user_name': fake.user_name(),
-#         'email': fake.email(),
-#         'password': fake.password()
-#     }
-
+@pytest.fixture
+def main_func_page_filled_addresses(main_func_page):
+    main_func_page.fill_addresses(ADDRESSES[0], ADDRESSES[1])
+    return main_func_page
 
 @pytest.fixture
 def driver():
@@ -36,16 +29,3 @@ def driver():
     driver.get(BASE_URL)
     yield driver
     driver.quit()
-
-
-
-# @pytest.fixture
-# def receipt_payload():
-#     fake = Faker('ru_RU')
-#     food = Food(locale=Locale.RU)
-#     return {
-#         'name': food.dish(),
-#         'ingredient_amount': fake.random_int(min=5, max=500),
-#         'cooking_time': fake.random_int(min=10, max=120),
-#         'description': fake.text(max_nb_chars=200)
-#     }
