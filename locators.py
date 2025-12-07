@@ -27,6 +27,9 @@ class Locators:
     TITLE_CURRENT_TARIFF = (By.CSS_SELECTOR, ".tcard-title")
     ICON_CURRENT_TARIFF = (By.CSS_SELECTOR, "button.tcard-i")
     DESCRIPTION_CURRENT_TOOLTIP = (By.CSS_SELECTOR, ".i-floating-tooltip.show .i-dPrefix")
+    ORDER_REQUIREMENT_BUTTON = (By.CLASS_NAME, 'reqs-header')
+    TABLE_FOR_NOTEBOOK_BUTTON = (By.CSS_SELECTOR, '.slider.round')
+    POP_UP_SUCCESS_ORDER = (By.CLASS_NAME, 'order-body')
 
     @staticmethod
     def tariff_tooltip(title):

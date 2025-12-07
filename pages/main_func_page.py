@@ -24,9 +24,28 @@ class MainFuncPage(BasePage):
         action.perform()
 
     def call_fast_taxi(self):
+        self.wait_of_element(Locators.FAST_BUTTON)
         self.click_element(Locators.FAST_BUTTON)
+        self.wait_of_element(Locators.TAXI_CALL_BUTTON)
         self.click_element(Locators.TAXI_CALL_BUTTON)
         return self.wait_of_element(Locators.FORM_ORDER_SIX_TARIFF)
+
+    def select_tariff(self, tariff):
+        tariffs = self.find_elements(Locators.TARIFFS)
+        for tariff_card in tariffs:
+            tariff_title = self.find_text_inside(tariff_card, Locators.TITLE_CURRENT_TARIFF)
+            if tariff_title == tariff:
+                tariff_card.click()
+
+    def select_work_tariff_and_laptop_with_click_order_taxi_button(self):
+        self.select_tariff('Рабочий')
+        self.click_element(Locators.ORDER_REQUIREMENT_BUTTON)
+        self.wait_of_element(Locators.TABLE_FOR_NOTEBOOK_BUTTON)
+        self.click_element(Locators.TABLE_FOR_NOTEBOOK_BUTTON)
+        self.click_element(Locators.ORDER_TAXI_BUTTON)
+
+    def check_waiting_pop_up_success_order(self):
+        return self.wait_of_element(Locators.POP_UP_SUCCESS_ORDER)
 
     def check_existence_fields_and_button_order_taxi(self):
         phone = self.wait_of_element(Locators.PHONE)
