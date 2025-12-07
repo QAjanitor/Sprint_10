@@ -1,0 +1,1 @@
+Кнопка вызова такси активна: <selenium.webdriver.remote.webelement.WebElement (session="dbada380d5df6494f2e8d2ab30daa964", element="f.4589C7D96708C80D78151EC40D343C5C.d.0BAF867E7D569FCE18E1FE38B0FC00A6.e.74")>

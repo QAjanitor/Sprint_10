@@ -1,0 +1,1 @@
+Блок маршрута отображается: <selenium.webdriver.remote.webelement.WebElement (session="bf17a931649ae7c7c051dd66cab7991b", element="f.50D07945BB47F5BDD61D054C5CCBDA66.d.3619AE52EA9FBE07291CE902D99AB1CF.e.41")>

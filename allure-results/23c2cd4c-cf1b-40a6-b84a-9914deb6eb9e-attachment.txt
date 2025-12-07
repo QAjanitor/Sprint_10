@@ -1,0 +1,1 @@
+Форма заказа с шестью тарифами отображается: <selenium.webdriver.remote.webelement.WebElement (session="49e6640a0c88dde44b9963f3eabea48a", element="f.01735911C6AC1125C005438A9F809FEC.d.105DBA9FFA491F4BD807CD51FB96D92A.e.76")>

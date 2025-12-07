@@ -1,0 +1,1 @@
+Элемент найден: ('xpath', "//div[contains(@class, 'order-btn-rating')]/following-sibling::img")
