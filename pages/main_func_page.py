@@ -1,8 +1,4 @@
-import re
-from time import sleep
-
 from selenium.webdriver import ActionChains
-
 from data import TARIFFS, TARIFFS_TITLES
 from locators import Locators
 from pages.base_page import BasePage
@@ -40,8 +36,14 @@ class MainFuncPage(BasePage):
             if tariff_title == tariff:
                 tariff_card.click()
 
+    def click_cancel_button(self):
+        self.click_element(Locators.CANCEL_BTN)
+
     def remember_order_price(self):
         self.order_price = self.get_numbers_by_locator(Locators.CURRENT_TARIFF_PRICE)
+
+    def check_close_order_pop_up(self):
+        return self.wait_of_element_invisibility(Locators.POP_UP_SUCCESS_ORDER)
 
     def check_comparison_price_in_details_same_in_select_tariff(self):
         self.click_element(Locators.DETAILS_BTN)
