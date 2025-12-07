@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 class Locators:
     INPUT_ADDRESS_FROM = (By.ID, "from")
     INPUT_ADDRESS_TO = (By.ID, "to")
-    POINTS = (By.CSS_SELECTOR, ".ymaps-2-1-79-route-pin__text")  # todo при выполнении проверок посмотреть в ТГК "Избранное"
+    POINTS = (By.CSS_SELECTOR, ".ymaps-2-1-79-route-pin__text")
     BLOCK_ROUTE = (By.CSS_SELECTOR, '.type-picker.shown')
     RESULT_TEXT_FREE_CAR_AND_0_TIME = (By.XPATH, "//div[contains(.,'Авто Бесплатно') and contains(.,'В пути 0 мин.')]")
     OPTIMAL_BUTTON = (By.XPATH, "//div[contains(@class, 'mode') and .='Оптимальный']")
@@ -22,3 +22,12 @@ class Locators:
     PAYMENT = (By.XPATH, "//div[@class='pp-text' and .='Способ оплаты']")
     COMMENT = (By.XPATH, "//label[@class='label' and .='Комментарий водителю...']")
     REQUIREMENTS = (By.XPATH, "//div[@class='reqs-head' and .='Требования к заказу']")
+    ORDER_TAXI_BUTTON = (By.CLASS_NAME, "smart-button-wrapper")
+    TARIFFS = (By.CSS_SELECTOR, ".tariff-cards .tcard")
+    TITLE_CURRENT_TARIFF = (By.CSS_SELECTOR, ".tcard-title")
+    ICON_CURRENT_TARIFF = (By.CSS_SELECTOR, "button.tcard-i")
+    DESCRIPTION_CURRENT_TOOLTIP = (By.CSS_SELECTOR, ".i-floating-tooltip.show .i-dPrefix")
+
+    @staticmethod
+    def tariff_tooltip(title):
+        return (By.XPATH, f"//div[@class='i-title' and text()='{title}']")

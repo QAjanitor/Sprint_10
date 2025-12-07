@@ -1,6 +1,8 @@
 from time import sleep
 
 from selenium.webdriver import ActionChains
+
+from data import TARIFFS, TARIFFS_TITLES
 from locators import Locators
 from pages.base_page import BasePage
 
@@ -21,10 +23,42 @@ class MainFuncPage(BasePage):
         action.send_keys(to_address)
         action.perform()
 
-    def check_block_order_six_tariff(self):
+    def call_fast_taxi(self):
         self.click_element(Locators.FAST_BUTTON)
         self.click_element(Locators.TAXI_CALL_BUTTON)
         return self.wait_of_element(Locators.FORM_ORDER_SIX_TARIFF)
+
+    def check_existence_fields_and_button_order_taxi(self):
+        phone = self.wait_of_element(Locators.PHONE)
+        payment = self.wait_of_element(Locators.PAYMENT)
+        comment = self.wait_of_element(Locators.COMMENT)
+        requirements = self.wait_of_element(Locators.REQUIREMENTS)
+        order_taxi_button = self.wait_of_element(Locators.ORDER_TAXI_BUTTON)
+        result = phone and payment and comment and requirements and order_taxi_button
+        return result
+
+    def check_texts_tariff_in_icons(self):
+        tariffs = self.find_elements(Locators.TARIFFS)
+        for tariff_card in tariffs:
+            tariff_card.click()
+
+            tariff_title = self.find_text_inside(tariff_card, Locators.TITLE_CURRENT_TARIFF)
+            if tariff_title not in TARIFFS_TITLES:
+                return False
+
+            info_icon = self.find_element_inside(tariff_card, Locators.ICON_CURRENT_TARIFF)
+            self.hover_element(info_icon)
+            self.wait_of_element(Locators.tariff_tooltip(tariff_title))
+
+            tariff_description = self.find_text_inside(tariff_card, Locators.DESCRIPTION_CURRENT_TOOLTIP)
+            expected_description = TARIFFS[tariff_title]
+            if expected_description != tariff_description:
+                return False
+
+        return True
+
+    def check_block_order_six_tariff(self):
+        return self.call_fast_taxi()
 
     def check_book_a_car_button_is_active(self):
         self.click_element(Locators.CUSTOM_BUTTON)

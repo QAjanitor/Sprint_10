@@ -1,4 +1,5 @@
 import allure
+from selenium.webdriver import ActionChains
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -38,3 +39,15 @@ class BasePage:
     @allure.step('Найти элемент')
     def find_element(self, locator):
         return self.driver.find_element(*locator)
+
+    @allure.step('Навестись на элемент')
+    def hover_element(self, element):
+        action = ActionChains(self.driver)
+        action.move_to_element(element).perform()
+
+
+    def find_element_inside(self, element, locator):
+        return element.find_element(*locator)
+
+    def find_text_inside(self, element, locator):
+        return self.find_element_inside(element, locator).text
