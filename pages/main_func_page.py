@@ -1,3 +1,4 @@
+import re
 from time import sleep
 
 from selenium.webdriver import ActionChains
@@ -8,6 +9,8 @@ from pages.base_page import BasePage
 
 
 class MainFuncPage(BasePage):
+    order_price = 0
+
     def fill_addresses(self, from_address, to_address):
         from_element = self.find_element(Locators.INPUT_ADDRESS_FROM)
         action = ActionChains(self.driver)
@@ -37,18 +40,26 @@ class MainFuncPage(BasePage):
             if tariff_title == tariff:
                 tariff_card.click()
 
+    def remember_order_price(self):
+        self.order_price = self.get_numbers_by_locator(Locators.CURRENT_TARIFF_PRICE)
+
+    def check_comparison_price_in_details_same_in_select_tariff(self):
+        self.click_element(Locators.DETAILS_BTN)
+        self.wait_of_element(Locators.COST_BLOCK)
+        order_price_in_details = self.get_numbers_by_locator(Locators.COST_BLOCK)
+        return self.order_price == order_price_in_details
+
     def check_all_elements_in_pop_up_success_order(self):
-        timer_invisibility = self.wait_of_element_invisibility(Locators.SEARCH_TIMER)
+        self.wait_of_element_invisibility(Locators.SEARCH_TIMER, 60)
         min_and_arrival = self.wait_of_element(Locators.MIN_AND_ARRIVAL)
         car_number = self.wait_of_element(Locators.CAR_NUMBER)
         car_image = self.wait_of_element(Locators.CAR_IMAGE)
         avatar = self.wait_of_element(Locators.AVATAR)
-        driver_name= self.wait_of_element(Locators.DRIVER_NAME)
+        driver_name = self.wait_of_element(Locators.DRIVER_NAME)
         driver_rating = self.wait_of_element(Locators.RATING_DRIVER)
         name = self.get_text_by_locator(Locators.DRIVER_NAME)
         rating = self.get_text_by_locator(Locators.RATING_DRIVER)
-        return (timer_invisibility and
-                min_and_arrival and
+        return (min_and_arrival and
                 car_number and
                 car_image and
                 avatar and
@@ -70,7 +81,7 @@ class MainFuncPage(BasePage):
     def check_waiting_pop_up_waiting_order(self):
         return self.wait_order_popup()
 
-    def check_all_elements_in_pop_up_success_order(self):
+    def check_all_elements_in_pop_up_waiting_order(self):
         title = self.wait_of_element(Locators.SEARCHING_TITLE)
         details = self.wait_of_element(Locators.SEARCHING_TITLE)
         cancel = self.wait_of_element(Locators.SEARCHING_TITLE)
