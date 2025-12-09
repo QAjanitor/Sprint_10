@@ -1,0 +1,1 @@
+Элемент найден: ('css selector', '.tariff-picker.shown')

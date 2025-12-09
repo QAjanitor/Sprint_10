@@ -1,0 +1,1 @@
+Элемент найден: ('css selector', '.type-picker.shown')

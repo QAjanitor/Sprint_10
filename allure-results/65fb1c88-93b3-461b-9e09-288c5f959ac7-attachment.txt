@@ -1,0 +1,1 @@
+Клик выполнен по элементу: ('xpath', "//div[contains(@class, 'mode') and .='Свой']")

@@ -1,0 +1,1 @@
+Элемент найден: ('xpath', "//div[@class='i-title' and text()='Сонный']")

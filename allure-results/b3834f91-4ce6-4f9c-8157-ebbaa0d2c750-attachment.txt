@@ -1,0 +1,1 @@
+Элемент найден: ('xpath', "//div[@class='o-d-sh' and contains(., 'Стоимость')]")

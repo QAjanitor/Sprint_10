@@ -1,0 +1,1 @@
+Текст свободного блока отображается: <selenium.webdriver.remote.webelement.WebElement (session="51d56f5270574274b5821d9bd6ecbfcc", element="f.F32F769B2752E044357DDB01522AD2A3.d.A33A7C7375D47B33D9CFD405F3738240.e.41")>

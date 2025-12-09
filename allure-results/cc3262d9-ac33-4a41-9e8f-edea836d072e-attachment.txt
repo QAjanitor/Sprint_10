@@ -1,0 +1,1 @@
+Кнопка бронирования активна: <selenium.webdriver.remote.webelement.WebElement (session="497ea0eb65ef186a5435bd464120e8ac", element="f.3DFC7A1FC93AD45876BEAA991D4B0129.d.3DC85FC388D0B7968AE9DF358CDE7E66.e.82")>

@@ -1,0 +1,1 @@
+Поп-ап ожидания отображается: <selenium.webdriver.remote.webelement.WebElement (session="199011d5cfb8943de4024f3c59a16681", element="f.EEB38D65A7CABEB97BF9624A4E3E3978.d.197B6F3512F0FEB9C12EC3D29236FEC8.e.109")>

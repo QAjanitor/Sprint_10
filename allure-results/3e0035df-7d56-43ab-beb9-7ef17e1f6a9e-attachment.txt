@@ -1,0 +1,1 @@
+Все поля формы и кнопка заказа присутствуют: <selenium.webdriver.remote.webelement.WebElement (session="880b9f8ea1d2a79ae03930a36106c632", element="f.2E6A221678D5FCC7D0047F5363880137.d.3A19CC8F9815C287F2A848BC7EB3898F.e.100")>

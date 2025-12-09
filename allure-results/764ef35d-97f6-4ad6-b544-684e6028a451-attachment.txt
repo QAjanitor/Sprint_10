@@ -1,0 +1,1 @@
+Элемент найден: ('css selector', '.ymaps-2-1-79-route-pin__text')
